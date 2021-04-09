@@ -5,7 +5,7 @@ A discord.py compatible extension for the Naarivad discord server.
 ## Prerequisites
 
 - discord.py>=1.5
-- asyncpg>-0.21.0
+- asyncpg>=0.21.0
 - psql>=11
 - A subclass of [`commands.Bot`](https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Bot)
   that implements a `pool` attribute, which is an instance of [`asyncpg.Pool`](https://magicstack.github.io/asyncpg/current/api/index.html#asyncpg.pool.Pool).
