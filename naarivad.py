@@ -85,6 +85,9 @@ class FileConverter(PostConverter):
 class Naarivad(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        # bot.config.naarivad_webhook: Tuple[int, str]: See https://discordpy.readthedocs.io/en/stable/api.html#discord.Webhook.partial
+        self.webhook = discord.Webhook.partial(*bot.config.naarivad_webhook,
+                                               adapter=discord.AsyncWebhookAdapter(session=bot.session))
 
     def cog_check(self, ctx):
         return ctx.guild and ctx.guild.id == GUILD_ID
@@ -116,7 +119,7 @@ class Naarivad(commands.Cog):
                 continue
             stat = await self.upload(attachment, post)
             statuses[attachment.filename] = stat
-        await message.channel.send('\n'.join(f'`{key}`: status {val}' for key, val in statuses.items()))
+        await self.webhook.send('\n'.join(f'`[{key}](https://docs.naarivad.in/{key})`: status {val}' for key, val in statuses.items()))
 
     async def upload(self, attachment, post):
         bytes_ = await attachment.read()
