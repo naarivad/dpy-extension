@@ -3,7 +3,6 @@ import aiohttp
 import discord
 from discord.ext import commands
 import re
-from .utils import db
 
 GUILD_ID = 824219708827369512
 UPLOADS_ID = 824236694210478121 
