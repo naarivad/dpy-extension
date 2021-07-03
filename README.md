@@ -7,6 +7,7 @@ A discord.py compatible extension for the Naarivad discord server.
 - discord.py>=1.5,<2.0
 - A subclass of [`commands.Bot`](https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Bot) with a
   `session` attribute, which is an instance of [`aiohttp.ClientSession`](https://docs.aiohttp.org/en/stable/client_reference.html#aiohttp.ClientSession).
+- Webhook credentials for auto-uplaod status. In this module, it is a tuple of `(webhook_id, webhook_token)` stored as `bot.config.naarivad_webhook`.
 - Access tokens to authenticate your uploads and post updates with the website. 
   (in this module, they are referenced as `bot.config.naarivad_upload_token`and `bot.config.naarivad_backend_token`. Edit this as necessary.)
 
