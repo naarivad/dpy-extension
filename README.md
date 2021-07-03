@@ -5,23 +5,10 @@ A discord.py compatible extension for the Naarivad discord server.
 ## Prerequisites
 
 - discord.py>=1.5
-- asyncpg>=0.21.0
-- psql>=11
 - A subclass of [`commands.Bot`](https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Bot)
-  that implements a `pool` attribute, which is an instance of [`asyncpg.Pool`](https://magicstack.github.io/asyncpg/current/api/index.html#asyncpg.pool.Pool).
-- An access token to authenticate your upload with the website. (in this module, it is referenced as `bot.config.naarivad_upload_token`. Edit this as necessary.)
-  
-## Before running
-In your psql tool, after connecting to your database, run the following:
-```sql
-CREATE TABLE IF NOT EXISTS naarivad_posts (
-    id TEXT,
-    translated_into VARCHAR(3) ARRAY,
-    PRIMARY KEY (id)
-);
-```
-
-To make this easier, there are commented out lines that define this table using a pseudo-ORM, which can be taken from my other project [here](https://github.com/darthshittious/Robo-VJ/blob/main/cogs/utils/db.py)
+  `session` attribute, which is an instance of [`iohttp.ClientSession`](https://docs.aiohttp.org/en/stable/client_reference.html#aiohttp.ClientSession).
+- Access tokens to authenticate your uploads and post updates with the website. 
+  (in this module, they are referenced as `bot.config.naarivad_upload_token`and `bot.config.naarivad_backend_token`. Edit this as necessary.)
 
 ## Running
 
